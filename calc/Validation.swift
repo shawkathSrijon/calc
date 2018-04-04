@@ -17,7 +17,9 @@ class Validation {
         self.lastArg = lastArg
     }
     
-    func validateInputExpression(firstArg : Int, lastArg : Int) -> String {
-        if firstArg.
-    }
+    /*func validateInputExpression(firstArg : Int, lastArg : Int) -> String {
+        if firstArg{
+            
+        }
+    }*/
 }

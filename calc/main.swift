@@ -12,7 +12,19 @@ import Foundation
 var args: [String] = ProcessInfo.processInfo.arguments
 args.removeFirst() // remove the name of the program
 
-var lastArgument : Int = args.endIndex
-print("the arguments are \(args[lastArgument - 1])")
+var lastArgumentIndex : Int = args.endIndex
+//print("the arguments are \(args[lastArgumentIndex - 1])")
 
-if args[lastArgument - 1] == 
+for var index in stride(from: 2, to: lastArgumentIndex, by: 2)
+{
+    //print("Value --> \(args[index])")
+    if var intArgs = Int(args[index]), var firstArg = Int(args[0]), var lastArg = Int(args[lastArgumentIndex - 1])
+    {
+        print("Equation is correct!")
+    }
+    else
+    {
+        print("wrong Equation")
+    }
+}
+
