@@ -12,19 +12,65 @@ import Foundation
 var args: [String] = ProcessInfo.processInfo.arguments
 args.removeFirst() // remove the name of the program
 
-var lastArgumentIndex : Int = args.endIndex
-//print("the arguments are \(args[lastArgumentIndex - 1])")
+var operatorTypes : [String] = ["+", "-", "*", "/", "%"]
 
-for var index in stride(from: 2, to: lastArgumentIndex, by: 2)
+
+
+//Constructing Stack for Operators (i.e. +, -, *, /, %)
+class Stack
 {
-    //print("Value --> \(args[index])")
-    if var intArgs = Int(args[index]), var firstArg = Int(args[0]), var lastArg = Int(args[lastArgumentIndex - 1])
+    //Declaring Array for Stack
+    private var arrayForStack : [String] = []
+    
+    //Push functionalities of Stack is declared here
+    func push(stringToPush : String)
     {
-        print("Equation is correct!")
+        self.arrayForStack.append(stringToPush)
     }
-    else
+    
+    //Pop functionalities of Stack is declared here
+    func pop() -> String?
     {
-        print("wrong Equation")
+        if self.arrayForStack.last != nil
+        {
+            var stringToReturn = self.arrayForStack.last
+            self.arrayForStack.removeLast()
+            
+            return stringToReturn
+        }
+        else
+        {
+            return nil
+        }
     }
 }
 
+//Main implementatio of Shunting Yard Algorithm
+func inFixToPostFix(_ args : [String], _ operatorTypes : [String])
+{
+    //The Stack class object has been created here for Shunting Yard implementaion
+    var operatorStack = Stack()
+    
+    //An array called outputArray has been created to store PostFix statement
+    var outputArray : [String] = []
+    
+    //Reading Tokens one-by-one from input array
+    for token in args
+    {
+        for operatorToken in operatorTypes
+        {
+            if token == operatorToken
+            {
+                while operatorStack != nil
+                {
+                    var tempOperatorToken = operatorStack.pop()
+                    
+                }
+            }
+            else
+            {
+                outputArray.append(token)
+            }
+        }
+    }
+}
